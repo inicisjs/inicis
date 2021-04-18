@@ -29,15 +29,13 @@
     "prerelease": "npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "coverage": "jest --coverage",
-    "coveralls": "npm run coverage --coverageReporters=text-lcov | coveralls"
+    "coverage": "jest --coverage"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.41",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
-    "coveralls": "^3.1.0",
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-import": "^2.22.1",
