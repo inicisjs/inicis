@@ -7,17 +7,17 @@
     <a href="https://www.npmjs.com/package/inicis" target="_blank">
         <img src="https://img.shields.io/npm/l/inicis.svg" alt="Package License" />
     </a>
-    <a href="https://github.com/greatSumini/inicis/actions">
-        <img src="https://github.com/greatSumini/inicis/workflows/CI/badge.svg" />
+    <a href="https://github.com/greatSumini/inicis-node/actions">
+        <img src="https://github.com/greatSumini/inicis-node/workflows/CI/badge.svg" />
     </a>
     <a href="https://www.npmjs.com/package/inicis" target="_blank">
         <img src="https://img.shields.io/npm/dm/inicis.svg" alt="NPM Downloads" />
     </a>
-    <a href="https://coveralls.io/github/greatSumini/inicis?branch=master" target="_blank">
-        <img src="https://coveralls.io/repos/github/greatSumini/inicis/badge.svg?branch=master#9" alt="Coverage" />
+    <a href="https://coveralls.io/github/greatSumini/inicis-node?branch=master" target="_blank">
+        <img src="https://coveralls.io/repos/github/greatSumini/inicis-node/badge.svg?branch=master#9" alt="Coverage" />
     </a>
-    <a href="https://github.com/greatSumini/inicis" target="_blank">
-        <img src="https://img.shields.io/github/stars/greatSumini/inicis?style=social">
+    <a href="https://github.com/greatSumini/inicis-node" target="_blank">
+        <img src="https://img.shields.io/github/stars/greatSumini/inicis-node?style=social">
     </a>
 </p>
 
