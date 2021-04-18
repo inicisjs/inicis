@@ -1,4 +1,8 @@
-# Inicis-Node
+<p align="center">
+  <a href="https://www.inicis.com/" target="blank"><img src="https://www.inicis.com/wp-content/themes/inicis2020/assets/images/sub07-010301.png" width="120" alt="Nest Logo" /></a>
+</p>
+
+<p align="center">KG Inicis client for <a href="https://nodejs.org/" target="_blank">Node.js</a></p>
 
 <p align="center">
     <a href="https://www.npmjs.com/package/inicis" target="_blank">
@@ -21,8 +25,9 @@
     </a>
 </p>
 
-이 모듈은 KG이니시스에서 제공하는 API를 [Node.js®](https://nodejs.org/)로 구현한 클라이언트입니다.
-KG INICIS의 개발 가이드는 [여기](https://manual.inicis.com/main/)를 참고하시기 바랍니다.
+이 모듈은 KG이니시스에서 제공하는 API를 [Node.js®](https://nodejs.org/)로 구현한 클라이언트입니다.<br>
+KG INICIS의 개발 가이드는 [여기](https://manual.inicis.com/main/)를 참고하시기 바랍니다.<br>
+이 라이브러리를 사용하여 발생하는 손실이나 문제는 책임지지 않습니다.
 
 ## Features
 
