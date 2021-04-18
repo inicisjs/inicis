@@ -17,7 +17,7 @@
     "lib": ["es2017"],
     "baseUrl": "./",
     "paths": {
-      "nest-inicis": ["./lib"]
+      "inicis": ["./lib"]
     }
   },
   "include": ["lib/**/*", "tests"],
