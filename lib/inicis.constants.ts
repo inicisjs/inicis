@@ -1,0 +1,16 @@
+export const INICIS_BASE_STDPAY_OPTIONS = {
+  popupUrl: '',
+  returnUrl: '',
+  closeUrl: '',
+  requestByJs: true,
+  version: '1.0',
+  currency: 'WON',
+  acceptmethod: 'SKIN(ORIGINAL)',
+  payViewType: 'overlay',
+  nointerest: '',
+  quotabase: '2:3:4:5:6:7:8:9:10:11:12',
+  merchantData: '',
+  escw_yn: '',
+  ini_logoimage_url: '',
+  gopaymethod: '',
+};
