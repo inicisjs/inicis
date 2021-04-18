@@ -1,1 +1,2 @@
-export * from './inicis-options.interface';
+export * from './inicis.interface';
+export * from './stdpay.interface';

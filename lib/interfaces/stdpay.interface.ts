@@ -1,0 +1,17 @@
+export enum GoPayMethod {
+  Card,
+  DirectBank,
+  VBank,
+  HPP,
+  PhoneBill,
+  Culture,
+  DGCL,
+  Bcsh,
+  HPMN,
+  Kpay,
+  TeenCash,
+  Paypin,
+  OCBPoint,
+  POINT,
+  GiftCard,
+}

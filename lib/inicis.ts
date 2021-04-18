@@ -1,5 +1,10 @@
 import { InicisOptions } from './interfaces';
+import { InicisStdpay } from './resources';
 
 export class Inicis {
-  constructor(private readonly options: InicisOptions) {}
+  stdpay: InicisStdpay;
+
+  constructor(private readonly options: InicisOptions) {
+    this.stdpay = new InicisStdpay(options);
+  }
 }

@@ -29,10 +29,6 @@
 KG INICIS의 개발 가이드는 [여기](https://manual.inicis.com/main/)를 참고하시기 바랍니다.<br>
 이 라이브러리를 사용하여 발생하는 손실이나 문제는 책임지지 않습니다.
 
-## Features
-
-- 모든 함수는 [Promise](http://www.html5rocks.com/ko/tutorials/es6/promises/)를 반환
-
 ## Requirements
 
 - [nodejs](https://github.com/nodejs/node) >= 0.12.x
@@ -42,6 +38,15 @@ KG INICIS의 개발 가이드는 [여기](https://manual.inicis.com/main/)를 �
 ```
 $ npm install --save inicis
 ```
+
+## Features
+
+- stdpay
+  - [ ] getParams
+  - [ ] auth
+- mobpay
+  - [ ] getParams
+  - [ ] auth
 
 ## Usage
 
@@ -53,32 +58,11 @@ const inicis = new Inicis({
   signkey: 'your signkey',
 });
 
-// 아임포트 고유 아이디로 결제 정보를 조회
-iamport.payment
-  .getByImpUid({
-    imp_uid: 'your imp_uid',
-  })
-  .then(function (result) {
-    // To do
-  })
-  .catch(function (error) {
-    // handle error
-  });
-
-// 상점 고유 아이디로 결제 정보를 조회
-iamport.payment.getByMerchant({
-  merchant_uid: 'your merchant_uid',
-});
-
-// 상태별 결제 정보 조회
-iamport.payment.getByStatus({
-  payment_status: 'your payment_status',
-});
+// 웹표준결제에 필요한 파라미터 받아오기
+await inicis.stdpay.getParams({
+    ...
+})
 ```
-
-## Features
-
-미완
 
 ## Author
 

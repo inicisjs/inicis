@@ -1,4 +1,4 @@
-export const INICIS_BASE_STDPAY_OPTIONS = {
+export const STDPAY_BASE_PARAMS = {
   popupUrl: '',
   returnUrl: '',
   closeUrl: '',
