@@ -1,9 +1,8 @@
 import { validateOrReject } from 'class-validator';
-import { hash, sign } from 'lib/helpers/sign';
 
 import { STDPAY_BASE_PARAMS } from '../constants/stdpay.constants';
 import { StdPayGetParamsInput, StdPayRequestParams } from '../dtos/stdpay.dto';
-import { getRandomString } from '../helpers/string';
+import { hash, sign, getRandomString } from '../helpers';
 import { InicisOptions } from '../interfaces';
 
 export class InicisStdpay {

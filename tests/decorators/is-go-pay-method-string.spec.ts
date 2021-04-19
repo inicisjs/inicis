@@ -1,19 +1,25 @@
-import { isCurrency } from '../../lib/decorators/validations/is-currency';
+import * as faker from 'faker';
 
-describe('isCurrency', () => {
+import { isGoPayMethodString } from '../../lib/decorators/validations/is-go-pay-method-string';
+import { GoPayMethod } from '../../lib/interfaces';
+
+describe('isGoPayMethodString', () => {
   it('should return true when valid', () => {
-    const validInputs = ['WON', 'USD'];
+    const goPayMethodString = [...Array(faker.datatype.number(10))]
+      .map(() => {
+        const values = Object.values(GoPayMethod);
+        return values[faker.datatype.number(values.length / 2 - 1)];
+      })
+      .join(':');
 
-    validInputs.forEach((input) => {
-      expect(isCurrency(input)).toEqual(true);
-    });
+    expect(isGoPayMethodString(goPayMethodString)).toEqual(true);
   });
 
   it('should return false when invalid', () => {
     const invalidInputs = [3332255555, '', 'Sumin', null, undefined, true];
 
     invalidInputs.forEach((input) => {
-      expect(isCurrency(input)).toEqual(false);
+      expect(isGoPayMethodString(input)).toEqual(false);
     });
   });
 });
