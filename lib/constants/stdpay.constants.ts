@@ -1,16 +1,12 @@
-export const STDPAY_BASE_PARAMS = {
-  popupUrl: '',
+import { StdPayRequestParams } from '../dtos/stdpay.dto';
+
+export const STDPAY_BASE_PARAMS: Pick<
+  StdPayRequestParams,
+  'version' | 'gopaymethod' | 'currency' | 'returnUrl' | 'closeUrl'
+> = {
+  version: '1.0',
+  gopaymethod: '',
+  currency: 'WON',
   returnUrl: '',
   closeUrl: '',
-  requestByJs: true,
-  version: '1.0',
-  currency: 'WON',
-  acceptmethod: 'SKIN(ORIGINAL)',
-  payViewType: 'overlay',
-  nointerest: '',
-  quotabase: '2:3:4:5:6:7:8:9:10:11:12',
-  merchantData: '',
-  escw_yn: '',
-  ini_logoimage_url: '',
-  gopaymethod: '',
 };
