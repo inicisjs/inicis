@@ -8,10 +8,10 @@
     <a href="https://www.npmjs.com/package/inicis" target="_blank">
         <img src="https://img.shields.io/npm/v/inicis.svg" alt="NPM Version" />
     </a>
-    <a href="https://www.npmjs.com/package/inicis" target="_blank">
+    <a href="https://github.com/greatSumini/inicis/blob/master/LICENSE" target="_blank">
         <img src="https://img.shields.io/npm/l/inicis.svg" alt="Package License" />
     </a>
-    <a href="https://github.com/greatSumini/inicis/actions">
+    <a href="https://github.com/greatSumini/inicis/actions/workflows/ci.yml">
         <img src="https://github.com/greatSumini/inicis/workflows/CI/badge.svg" />
     </a>
     <a href="https://www.npmjs.com/package/inicis" target="_blank">
