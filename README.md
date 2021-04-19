@@ -11,17 +11,17 @@
     <a href="https://www.npmjs.com/package/inicis" target="_blank">
         <img src="https://img.shields.io/npm/l/inicis.svg" alt="Package License" />
     </a>
-    <a href="https://github.com/greatSumini/inicis-node/actions">
-        <img src="https://github.com/greatSumini/inicis-node/workflows/CI/badge.svg" />
+    <a href="https://github.com/greatSumini/inicis/actions">
+        <img src="https://github.com/greatSumini/inicis/workflows/CI/badge.svg" />
     </a>
     <a href="https://www.npmjs.com/package/inicis" target="_blank">
         <img src="https://img.shields.io/npm/dm/inicis.svg" alt="NPM Downloads" />
     </a>
-    <a href="https://coveralls.io/github/greatSumini/inicis-node?branch=master" target="_blank">
-        <img src="https://coveralls.io/repos/github/greatSumini/inicis-node/badge.svg?branch=master#9" alt="Coverage" />
+    <a href="https://coveralls.io/github/greatSumini/inicis?branch=master" target="_blank">
+        <img src="https://coveralls.io/repos/github/greatSumini/inicis/badge.svg?branch=master#9" alt="Coverage" />
     </a>
-    <a href="https://github.com/greatSumini/inicis-node" target="_blank">
-        <img src="https://img.shields.io/github/stars/greatSumini/inicis-node?style=social">
+    <a href="https://github.com/greatSumini/inicis" target="_blank">
+        <img src="https://img.shields.io/github/stars/greatSumini/inicis?style=social">
     </a>
 </p>
 
@@ -71,7 +71,7 @@ await inicis.stdpay.getParams({
 ## Contribution
 
 - 이 프로젝트는 누구나 참여 가능합니다.
-- 버그나 개선점 및 의견 등은 [이슈](https://github.com/greatSumini/inicis-node/issues) 및 [Pull Request](https://github.com/greatSumini/inicis-node/compare)를 활용해주세요.
+- 버그나 개선점 및 의견 등은 [이슈](https://github.com/greatSumini/inicis/issues) 및 [Pull Request](https://github.com/greatSumini/inicis/compare)를 활용해주세요.
 
 ## Links
 
@@ -80,7 +80,7 @@ await inicis.stdpay.getParams({
 
 ## License
 
-Inicis-Node is [MIT licensed](https://github.com/greatSumini/inicis-node/blob/master/LICENSE).
+This Package is [MIT licensed](https://github.com/greatSumini/inicis/blob/master/LICENSE).
 
 ## References
 
