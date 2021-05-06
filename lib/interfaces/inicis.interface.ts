@@ -10,3 +10,11 @@ export type InicisOptions = {
    */
   signkey: string;
 };
+
+export type InicisCommonResult = {
+  /** 결과코드 ["0000": 정상, 이외 실패] */
+  resultCode: string;
+
+  /** 결과메시지 */
+  resulMsg: string;
+};
