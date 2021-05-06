@@ -1,10 +1,11 @@
 .git
 .github
 .vscode
-
-node_modules/
-lib/
-tests/
+coverage
+node_modules
+!node_modules/axios
+lib
+tests
 
 yarn.lock
 yarn-error.log
