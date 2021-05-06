@@ -31,9 +31,6 @@
     "test:watch": "jest --watch",
     "coverage": "jest --coverage"
   },
-  "dependencies": {
-    "class-validator": "^0.13.1"
-  },
   "devDependencies": {
     "@types/faker": "^5.5.2",
     "@types/jest": "^26.0.22",
