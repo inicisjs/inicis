@@ -42,7 +42,7 @@ $ npm install --save inicis
 ## Features
 
 - stdpay
-  - [ ] getParams
+  - [x] getParams
   - [ ] auth
 - mobpay
   - [ ] getParams
@@ -59,7 +59,7 @@ const inicis = new Inicis({
 });
 
 // 웹표준결제에 필요한 파라미터 받아오기
-await inicis.stdpay.getParams({
+inicis.stdpay.getParams({
     ...
 })
 ```
