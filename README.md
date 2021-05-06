@@ -43,7 +43,7 @@ $ npm install --save inicis
 
 - stdpay
   - [x] getParams
-  - [ ] auth
+  - [x] auth
 - mobpay
   - [ ] getParams
   - [ ] auth
