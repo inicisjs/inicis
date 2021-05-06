@@ -1,4 +1,7 @@
-tsconfig.json
+.git
+.github
+.vscode
+
 node_modules/
 lib/
 tests/
@@ -6,3 +9,7 @@ tests/
 yarn.lock
 yarn-error.log
 package-lock.json
+
+*eslint*
+*prettier*
+CHANGELOG.md
