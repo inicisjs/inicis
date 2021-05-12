@@ -9,6 +9,9 @@ export type InicisOptions = {
    * signkey 는 반드시 상점아이디(mid) 와 매칭되는 key 로 세팅하셔야 합니다.
    */
   signkey: string;
+
+  /** 가맹점 이름 */
+  mname?: string;
 };
 
 export type InicisCommonResult = {
