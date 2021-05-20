@@ -53,16 +53,16 @@ export class InicisStdpay {
       authToken,
       timestamp,
     });
+    const authForm = {
+      mid,
+      authToken,
+      signature,
+      timestamp,
+      charset,
+      format,
+    };
 
     try {
-      const authForm = {
-        mid,
-        authToken,
-        signature,
-        timestamp,
-        charset,
-        format,
-      };
       const { data: response } = await axios.post<StdPayAuthResult>(
         authUrl,
         authForm

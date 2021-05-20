@@ -2,13 +2,11 @@ import { StdPayRequestParams } from '../interfaces/stdpay.interface';
 
 export const STDPAY_BASE_PARAMS: Pick<
   StdPayRequestParams,
-  'version' | 'gopaymethod' | 'currency' | 'returnUrl' | 'closeUrl'
+  'version' | 'gopaymethod' | 'currency'
 > = {
   version: '1.0',
   gopaymethod: '',
   currency: 'WON',
-  returnUrl: '',
-  closeUrl: '',
 };
 
 export enum StdPayPayMethod {

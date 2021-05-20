@@ -38,11 +38,11 @@ export type StdPayGetParamsInput = {
 
   /** 결과수신 URL
    * @default '' */
-  returnUrl?: string;
+  returnUrl: string;
 
   /** 결제창 닫기 URL
    * @default '' */
-  closeUrl?: string;
+  closeUrl: string;
 
   /** 가맹점 임의 데이터 (인증결과수신 구간에서 전달)
    * - 한글 입력불가, 한글입력은 urlencode 필수
