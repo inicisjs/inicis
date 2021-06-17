@@ -14,21 +14,24 @@ export class InicisStdpay {
   constructor(private readonly inicisOptions: InicisOptions) {}
 
   getParams(input: StdPayGetParamsInput): StdPayRequestParams {
-    const timestamp = new Date().getTime();
-    const oid = `${timestamp}${getRandomString(4)}`;
+    const {
+      timestamp = new Date().getTime(),
+      oid = `${timestamp}${getRandomString(4)}`,
+      price,
+    } = input;
 
     const { mid, signkey } = this.inicisOptions;
 
     const mKey = hash(signkey, 'sha256');
     const signature = sign({
       oid,
-      price: input.price,
+      price,
       timestamp,
     });
 
     return {
-      ...input,
       ...STDPAY_BASE_PARAMS,
+      ...input,
       mid,
       oid,
       timestamp,

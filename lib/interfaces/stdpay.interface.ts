@@ -17,6 +17,14 @@ export type StdPayGetParamsInput = {
    * @default '' */
   gopaymethod?: string;
 
+  /** 주문번호 (* 반드시 Unique 값으로 생성 (거래추적 시 사용됨))
+   * @default `${timestamp}${getRandomString(4)}` */
+  oid?: string;
+
+  /** 타임스템프 [TimeInMillis(Long형)]
+   * @default new Date().getTime() */
+  timestamp?: number;
+
   /** 결제 금액 (* 숫자만, 1달러는 100으로 시작) */
   price: number;
 
@@ -55,12 +63,6 @@ export type StdPayRequestParams = Pick<InicisOptions, 'mid'> &
   StdPayGetParamsInput & {
     /** 전문 버전 ["1.0" 고정] */
     version: '1.0';
-
-    /** 주문번호 (* 반드시 Unique 값으로 생성 (거래추적 시 사용됨)) */
-    oid: string;
-
-    /** 타임스템프 [TimeInMillis(Long형)] */
-    timestamp: number;
 
     /** SHA256 Hash값 [대상: oid, price, timestamp] */
     signature: string;
