@@ -56,6 +56,9 @@ export type StdPayGetParamsInput = {
    * - 한글 입력불가, 한글입력은 urlencode 필수
    * @default '' */
   merchantData?: string;
+
+  /** 지불수단별 추가옵션 */
+  acceptmethod?: string;
 };
 
 /** inicis.stdpay.getParamsn 함수의 return type */
