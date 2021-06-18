@@ -14,7 +14,8 @@ export class InicisStdpay {
   constructor(private readonly inicisOptions: InicisOptions) {}
 
   getParams(
-    input: Partial<StdPayGetParamsInput>
+    input: Partial<StdPayGetParamsInput>,
+    withBaseParams = true
   ): Partial<StdPayRequestParams> {
     const {
       timestamp = new Date().getTime(),
@@ -32,7 +33,7 @@ export class InicisStdpay {
     });
 
     return {
-      ...STDPAY_BASE_PARAMS,
+      ...(withBaseParams ? STDPAY_BASE_PARAMS : {}),
       ...input,
       mid,
       oid,
