@@ -54,4 +54,8 @@ export enum StdPayPayMethod {
 
   /** 상품권 */
   GiftCard = 'GiftCard',
+
+  /** 카카오페이 다이렉트 옵션
+   * (간편결제 다이렉트 호출 시 '신용카드 전용화면' 계약이 되어있어야 합니다.) */
+  onlykakaopay = 'onlykakaopay',
 }
