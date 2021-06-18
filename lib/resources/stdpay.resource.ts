@@ -13,7 +13,9 @@ import { InicisOptions } from '../interfaces';
 export class InicisStdpay {
   constructor(private readonly inicisOptions: InicisOptions) {}
 
-  getParams(input: StdPayGetParamsInput): StdPayRequestParams {
+  getParams(
+    input: Partial<StdPayGetParamsInput>
+  ): Partial<StdPayRequestParams> {
     const {
       timestamp = new Date().getTime(),
       oid = `${timestamp}${getRandomString(4)}`,
