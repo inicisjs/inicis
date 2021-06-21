@@ -19,5 +19,5 @@ export type InicisCommonResult = {
   resultCode: string;
 
   /** 결과메시지 */
-  resulMsg: string;
+  resultMsg: string;
 };
