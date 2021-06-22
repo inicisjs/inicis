@@ -111,6 +111,18 @@ export type StdPayAuthInput = Pick<InicisOptions, 'mid'> &
     price?: number;
   };
 
+export type StdPayNetCancelResult = InicisCommonResult &
+  Pick<StdPayRequestParams, 'mid' | 'timestamp'> & {
+    /** 거래번호 */
+    tid: string;
+
+    /** 주문번호 */
+    moid: string;
+
+    /** 지불수단 */
+    selectPayMethod: StdPayPayMethod;
+  };
+
 /** inicis.stdpay.auth 함수의 return type */
 export type StdPayAuthResult = InicisCommonResult & {
   /** 거래번호 */

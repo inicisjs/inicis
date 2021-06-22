@@ -81,14 +81,14 @@ export class InicisStdpay {
       });
 
       if (response.resultCode !== '0000') {
-        return { ...response, isSuccess: false };
+        return response;
       }
 
       if (response.authSignature !== secureSignature) {
         return await axios.post(netCancelUrl, authForm);
       }
 
-      return { ...response, isSuccess: true };
+      return response;
     } catch (error) {
       return error;
     }
