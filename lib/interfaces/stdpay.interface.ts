@@ -157,7 +157,16 @@ export type StdPayAuthResult = { isSuccess: boolean } & InicisCommonResult & {
 export type StdPayAuthPayMethodResult =
   | {
       /** 지불수단 */
-      payMethod: StdPayPayMethod;
+      payMethod: Exclude<
+        StdPayPayMethod,
+        | 'Card'
+        | 'DirectBank'
+        | 'VBank'
+        | 'HPP'
+        | 'POINT'
+        | 'GiftCard'
+        | 'PhoneBill'
+      >;
     }
   | StdPayAuthCardResult
   | StdPayAuthDirectBankResult
