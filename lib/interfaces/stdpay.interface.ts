@@ -112,46 +112,46 @@ export type StdPayAuthInput = Pick<InicisOptions, 'mid'> &
   };
 
 /** inicis.stdpay.auth 함수의 return type */
-export type StdPayAuthResult = { isSuccess: boolean } & InicisCommonResult & {
-    /** 거래번호 */
-    tid: string;
+export type StdPayAuthResult = InicisCommonResult & {
+  /** 거래번호 */
+  tid: string;
 
-    /** 상품명 */
-    goodName: string;
+  /** 상품명 */
+  goodName: string;
 
-    /** 결제금액 */
-    TotPrice: number;
+  /** 결제금액 */
+  TotPrice: number;
 
-    /** 주문번호 (* 결제 요청시 oid 필드에 설정된 값) */
-    MOID: String;
+  /** 주문번호 (* 결제 요청시 oid 필드에 설정된 값) */
+  MOID: String;
 
-    /** SHA256 Hash값 [대상: mid, tstamp(timestamp), MOID, TotPrice] */
-    authSignature: string;
+  /** SHA256 Hash값 [대상: mid, tstamp(timestamp), MOID, TotPrice] */
+  authSignature: string;
 
-    /** 승인번호 (* 지불수단에 따라 미전송) */
-    applNum: string;
+  /** 승인번호 (* 지불수단에 따라 미전송) */
+  applNum: string;
 
-    /** 승인일자 [YYYYMMDD] */
-    applDate: string;
+  /** 승인일자 [YYYYMMDD] */
+  applDate: string;
 
-    /** 승인시간 [hh24miss] */
-    applTime: string;
+  /** 승인시간 [hh24miss] */
+  applTime: string;
 
-    /** 이벤트 코드, 카드 할부 및 행사 적용 코드 */
-    EventCode: string;
+  /** 이벤트 코드, 카드 할부 및 행사 적용 코드 */
+  EventCode: string;
 
-    /** 구매자명 */
-    buyerName: string;
+  /** 구매자명 */
+  buyerName: string;
 
-    /** 구매자 휴대폰번호 */
-    buyerTel: string;
+  /** 구매자 휴대폰번호 */
+  buyerTel: string;
 
-    /** 구매자 이베일주소 */
-    buyerEmail: string;
+  /** 구매자 이베일주소 */
+  buyerEmail: string;
 
-    /** 최종 이메일주소 */
-    custEmail: string;
-  } & StdPayAuthPayMethodResult;
+  /** 최종 이메일주소 */
+  custEmail: string;
+} & StdPayAuthPayMethodResult;
 
 /** inicis.stdpay.auth 함수의 지불수단별 추가 return type */
 export type StdPayAuthPayMethodResult =
