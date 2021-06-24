@@ -103,6 +103,10 @@ export type StdPayAuthInput = Pick<InicisOptions, 'mid'> &
     /** 타임스템프 [TimeInMillis(Long형)] */
     timestamp: string;
 
+    /** 인증결과 인코딩
+     * @default 'UTF-8' */
+    charset?: 'UTF-8';
+
     /** 리턴형식 ['XML', 'JSON', 'NVP']
      * @default 'JSON' */
     format?: 'XML' | 'JSON' | 'NVP';
