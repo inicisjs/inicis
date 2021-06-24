@@ -192,7 +192,7 @@ export type MobpayNetCancelResult = Pick<
 export type MobpayAuthPayMethodResult =
   | {
       /** 지불수단 */
-      P_TYPE: Exclude<MobpayMethod, 'Card' | 'Bank' | 'VBank' | 'Mobile'>;
+      P_TYPE: Exclude<MobpayMethod, 'CARD' | 'BANK' | 'VBANK' | 'MOBILE'>;
     }
   | MobpayAuthCardResult
   | MobpayAuthBankResult
@@ -200,7 +200,7 @@ export type MobpayAuthPayMethodResult =
   | MobpayAuthMobileResult;
 
 export type MobpayAuthCardResult = {
-  P_TYPE: MobpayMethod.Card;
+  P_TYPE: MobpayMethod.CARD;
 
   /** 발급사(은행) 코드 */
   P_CARD_ISSUER_CODE: InicisBankCode;
@@ -273,7 +273,7 @@ export type MobpayAuthCardResult = {
 };
 
 export type MobpayAuthBankResult = {
-  P_TYPE: MobpayMethod.Bank;
+  P_TYPE: MobpayMethod.BANK;
 
   /** 은행코드 */
   P_FN_CD1: InicisBankCode;
@@ -283,7 +283,7 @@ export type MobpayAuthBankResult = {
 };
 
 export type MobpayAuthVBankResult = {
-  P_TYPE: MobpayMethod.VBank;
+  P_TYPE: MobpayMethod.VBANK;
 
   /** 가상계좌번호 */
   P_VACT_NUM: string;
@@ -305,7 +305,7 @@ export type MobpayAuthVBankResult = {
 };
 
 export type MobpayAuthMobileResult = {
-  P_TYPE: MobpayMethod.Mobile;
+  P_TYPE: MobpayMethod.MOBILE;
 
   /** 휴대폰통신사 [*** 고정] */
   P_HPP_CORP: string;
