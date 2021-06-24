@@ -86,3 +86,58 @@ export type MobpayRequestParams = MobpayGetParamsInput & {
   /** 가맹점 이름 (입력한 mname과 동일) */
   P_MNAME?: string;
 };
+
+export type MobpayResult = Pick<MobpayGetParamsInput, 'P_AMT' | 'P_NOTI'> & {
+  /** 결과코드 ["00": 정상, 이외 실패] */
+  P_STATUS: string;
+
+  /** 결과메시지 */
+  P_RMESG1: string;
+
+  /** 인증거래번호 (성공시에만 전달) */
+  P_TID: string;
+
+  /** 거래금액 */
+  P_AMT: number;
+
+  /** 승인요청 URL (해당 URL로 HTTPS API Request 승인요청 - POST) */
+  P_REQ_URL: string;
+
+  /** 가맹점 임의 데이터 */
+  P_NOTI: string;
+};
+
+export type MobpayAuthInput = Pick<MobpayRequestParams, 'P_MID'> &
+  Pick<MobpayResult, 'P_TID'>;
+
+export type MobpayAuthResult = Pick<
+  MobpayResult,
+  'P_STATUS' | 'P_RMESG1' | 'P_TID' | 'P_AMT' | 'P_NOTI'
+> &
+  Pick<
+    MobpayRequestParams,
+    'P_MID' | 'P_MNAME' | 'P_OID' | 'P_NEXT_URL' | 'P_NOTI_URL'
+  > & {
+    /** 지불수단 */
+    P_TYPE: MobpayMethod;
+
+    /** 승인일자 [YYYYMMDDhhmmss] */
+    P_AUTH_DT: string;
+  };
+
+export type MobpayNetCancelInput = Pick<
+  MobpayRequestParams,
+  'P_MID' | 'P_AMT' | 'P_OID'
+> &
+  Pick<MobpayResult, 'P_TID'> & {
+    /** 위변조 방지 HASH 값 (권장) */
+    P_CHKEFAKE?: string;
+
+    /** 타임스템프 [TimeInMillis(Long형)] (* P_CHKFAKE 세팅 시 반드시 함께 세팅필요) */
+    P_TIMESTAMP?: number;
+  };
+
+export type MobpayNetCancelResult = Pick<
+  MobpayAuthResult,
+  'P_STATUS' | 'P_RMESG1' | 'P_TID'
+>;
