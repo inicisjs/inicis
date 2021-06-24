@@ -7,4 +7,12 @@ export enum MobpayMethod {
   VBank = 'VBANK',
   /** 휴대폰 */
   Mobile = 'MOBILE',
+  /** 문화상품권 */
+  Culture = 'CULTURE',
+  /** 해피머니상품권 */
+  Hpmn = 'HPMN',
+  /** 전자지갑 */
+  Ewallet = 'EWALLET',
+  /** 알리페이,페이팔 외 기타 */
+  Etc = 'ETC_',
 }
