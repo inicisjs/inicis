@@ -1,4 +1,9 @@
-import { MobpayMethod } from '../constants';
+import {
+  InicisBankCode,
+  InicisCardCode,
+  InicisSourceCode,
+  MobpayMethod,
+} from '../constants';
 
 export type MobpayGetParamsInput = {
   /** 요청지불수단 */
@@ -118,12 +123,53 @@ export type MobpayAuthResult = Pick<
     MobpayRequestParams,
     'P_MID' | 'P_MNAME' | 'P_OID' | 'P_NEXT_URL' | 'P_NOTI_URL'
   > & {
-    /** 지불수단 */
-    P_TYPE: MobpayMethod;
-
     /** 승인일자 [YYYYMMDDhhmmss] */
     P_AUTH_DT: string;
-  };
+  } & {
+    // 현금영수증 Fields
+    /** 결과코드 ["220000":정상, 그외 실패] */
+    P_CSHR_CODE?: string;
+
+    /** 결과메세지 */
+    P_CSHR_MSG?: string;
+
+    /** 현금영수증 총 금액 [총금액 = 공급가액+세금+봉사료] */
+    P_CSHR_AMT?: number;
+
+    /** 공급가액 */
+    P_CSHR_SUP_AMT?: number;
+
+    /** 부가세 */
+    P_CSHR_TAX?: number;
+
+    /** 봉사료 */
+    P_CSHR_SRVC_AMT?: number;
+
+    /** 용도구분 ["0":소득공제, "1":지출증빙] */
+    P_CSHR_TYPE?: '0' | '1';
+
+    /** 발행일시 [YYYYMMDDhhmmss] */
+    P_CSHR_DT?: string;
+
+    /** 발행 승인번호 (* 가상계좌는 채번시점에선 미전달 (입금통보로 전달)) */
+    P_CSHR_AUTH_NO?: string;
+
+    // KPAY Fields
+    /** KPAY 실 승인금액 */
+    P_KPAY_APPL_PRICE?: number;
+
+    /** KPAY 지불수단 [CARD, ISP, HPP] */
+    P_KPAY_PAYMETHOD?: 'CARD' | 'ISP' | 'HPP';
+
+    /** KPAY 할부개월 */
+    P_KPAY_QUOTA?: string;
+
+    /** KPAY 무이자구분 ["0":일반, "1":무이자] */
+    P_KPAY_INST?: '0' | '1';
+
+    /** KPAY 카드구분 ["0":신용,"1":체크,"2":기프트] */
+    P_KPAY_CHECK_FLG?: '0' | '1' | '2';
+  } & MobpayAuthPayMethodResult;
 
 export type MobpayNetCancelInput = Pick<
   MobpayRequestParams,
@@ -141,3 +187,128 @@ export type MobpayNetCancelResult = Pick<
   MobpayAuthResult,
   'P_STATUS' | 'P_RMESG1' | 'P_TID'
 >;
+
+/** inicis.stdpay.auth 함수의 지불수단별 추가 return type */
+export type MobpayAuthPayMethodResult =
+  | {
+      /** 지불수단 */
+      P_TYPE: Exclude<MobpayMethod, 'Card' | 'Bank' | 'VBank' | 'Mobile'>;
+    }
+  | MobpayAuthCardResult
+  | MobpayAuthBankResult
+  | MobpayAuthVBankResult
+  | MobpayAuthMobileResult;
+
+export type MobpayAuthCardResult = {
+  P_TYPE: MobpayMethod.Card;
+
+  /** 발급사(은행) 코드 */
+  P_CARD_ISSUER_CODE: InicisBankCode;
+
+  /** 가맹점번호 (* 자체가맹점인 경우) */
+  P_CARD_MEMBER_NUM?: string;
+
+  /** 매입사코드 (* 자체가맹점인 경우) */
+  P_CARD_PURCHASE_CODE?: string;
+
+  /** 부분취소 가능여부 ["0":불가능, "1":가능] */
+  P_CARD_PRTC_CODE: '0' | '1';
+
+  /** 상점부담 무이자 할부여부 ["1":상점부담 무이자] */
+  P_CARD_INTEREST: string;
+
+  /** 카드구분 ["0":개인카드,"1":법인카드,"9":구분불가] (* 승인실패 시 빈값 전달)*/
+  CARD_CorpFlg: '0' | '1' | '9' | '';
+
+  /** 카드종류 ["0":신용, "1":체크, "2":기프트] */
+  P_CARD_CHECKFLG: '0' | '1' | '2';
+
+  /** 신용카드 할부개월 */
+  P_RMESG2: string;
+
+  /** 카드코드 */
+  P_FN_CD1: InicisCardCode;
+
+  /** 결제카드사 한글명 */
+  P_FN_NM: string;
+
+  /** 카드번호 */
+  P_CARD_NUM: string;
+
+  /** 승인번호 (* 신용카드 거래에만 사용) */
+  P_AUTH_NO: string;
+
+  /** VP 카드코드 */
+  P_ISP_CARDCODE: string;
+
+  /** 쿠폰사용 유무 ["1":사용] */
+  P_COUPONFLG: string;
+
+  /** 쿠폰사용 금액 */
+  P_COUPON_DISCOUNT: number;
+
+  /** 실제 카드승인 금액 */
+  P_CARD_APPLPRICE: number;
+
+  /** 간편(앱)결제여부 */
+  P_SRC_CODE?: InicisSourceCode;
+
+  /** 포인트 사용금액 */
+  P_CARD_USEPOINT: number;
+
+  /** 네이버포인트 무상포인트 */
+  NAVERPOINT_UseFreePoint?: string;
+
+  /** 네이버포인트 현금영수증 발급여부 ["Y":발행, "N":미발행] */
+  NAVERPOINT_CSHRApplYN?: 'Y' | 'N';
+
+  /** 네이버포인트 현금영수증 발행 금액 */
+  NAVERPOINT_CSHRApplAmt?: number;
+
+  /** 롯데카드 임직원 제휴 구분코드 ["L": 임직원] (*롯데카드인 경우만 임직원 구분코드 전달) */
+  CARD_EmpPrtnCode?: string;
+
+  /** 카드사 제휴구분코드 ["P":롯데카드일반, "M":롯데카드모바일, "H":현대카드(통합)] */
+  CARD_NomlMobPrtnCode: 'P' | 'M' | 'H' | undefined;
+};
+
+export type MobpayAuthBankResult = {
+  P_TYPE: MobpayMethod.Bank;
+
+  /** 은행코드 */
+  P_FN_CD1: InicisBankCode;
+
+  /** 결제은행 한글명 */
+  P_FN_NM: string;
+};
+
+export type MobpayAuthVBankResult = {
+  P_TYPE: MobpayMethod.VBank;
+
+  /** 가상계좌번호 */
+  P_VACT_NUM: string;
+
+  /** 채번은행코드 */
+  P_VACT_BANK_CODE: InicisBankCode;
+
+  /** 채번은행 한글명 */
+  P_FN_NM: string;
+
+  /** 입금마감일자 [YYYYMMDD] */
+  P_VACT_DATE: string;
+
+  /** 입금마감시간 [hhmmss] */
+  P_VACT_TIME: string;
+
+  /** 계좌주명 */
+  P_VACT_NAME: string;
+};
+
+export type MobpayAuthMobileResult = {
+  P_TYPE: MobpayMethod.Mobile;
+
+  /** 휴대폰통신사 [*** 고정] */
+  P_HPP_CORP: string;
+
+  /** 결제 휴대폰번호 */
+};
