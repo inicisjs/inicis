@@ -38,9 +38,9 @@ export type MobpayGetParamsInput = {
     - "@", "." 외 특수문자 입력불가 */
   P_EMAIL?: string;
 
-  /** 결과 수신 인코딩 [utf-8, euc-kr]
-    @default "utf-8" */
-  P_CHARSET?: 'utf-8' | 'euc-kr';
+  /** 결과 수신 인코딩 [utf8, euc-kr]
+    @default "utf8" */
+  P_CHARSET?: 'utf8' | 'euc-kr';
 
   /** 제공기간 [Y2:년단위결제, M2:월단위결제, YYYYMMDDYYYYMMDD:시작일종료일] */
   P_OFFER_PERIOD?: string;
