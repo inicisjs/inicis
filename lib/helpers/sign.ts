@@ -13,5 +13,7 @@ const objToQs = (obj: Record<string, unknown>): string =>
 export const hash = (data: string, algorithm: string): string =>
   createHash(algorithm).update(data).digest('hex');
 
-export const sign = (obj: Record<string, unknown>): string =>
-  hash(objToQs(sortObj(obj)), 'sha256');
+export const sign = (
+  obj: Record<string, unknown>,
+  algorithm = 'sha256'
+): string => hash(objToQs(sortObj(obj)), algorithm);
