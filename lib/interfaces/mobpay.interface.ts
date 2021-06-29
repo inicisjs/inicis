@@ -312,3 +312,71 @@ export type MobpayAuthMobileResult = {
 
   /** 결제 휴대폰번호 */
 };
+
+export type MobpayVbankNoti = {
+  /** 거래상태 [00:가상계좌 채번, 02:가상계좌입금통보] */
+  P_STATUS: '00' | '02';
+
+  /** 거래번호 */
+  P_TID: string;
+
+  /** 지불수단 [VBANK:가상계좌] */
+  P_TYPE: 'VBANK';
+
+  /** 승인일자 [YYMMDDhhmmss] */
+  P_AUTH_DT: string;
+
+  /** 상점아이디 */
+  P_MID: string;
+
+  /** 상점주문번호 */
+  P_OID: string;
+
+  /** 은행코드 */
+  P_FN_CD1: InicisBankCode;
+
+  /** 금융사코드 (빈값으로 전달) */
+  P_FN_CD2: '';
+
+  /** 입금은행명 */
+  P_FN_NM: string;
+
+  /** 거래금액 */
+  P_AMT: number;
+
+  /** 주문자명 */
+  P_UNAME: string;
+
+  /** 메세지1 [채번된 가상계좌번호|입금기한] */
+  P_RMESG1: string;
+
+  /** 메세지2 (빈값전달) */
+  P_RMESG2: string;
+
+  /** 가맹점 임의 데이터 */
+  P_NOTI: string;
+
+  /** 승인번호 (빈값전달) */
+  P_AUTH_NO: '';
+
+  /** 현금영수증 거래금액 (* 현금영수증 발급요청 건에 한함) */
+  P_CSHR_AMT?: number;
+
+  /** 현금영수증 공급가액 (* 현금영수증 발급요청 건에 한함) */
+  P_CSHR_SUP_AMT?: number;
+
+  /** 현금영수증 부가가치세 (* 현금영수증 발급요청 건에 한함) */
+  P_CSHR_TAX?: number;
+
+  /** 현금영수증 봉사료 (* 현금영수증 발급요청 건에 한함) */
+  P_CSHR_SRVC_AMT?: number;
+
+  /** 현금영수증 거래구분 ["0":소득공제용, "1":지출증빙용 ] (* 현금영수증 발급요청 건에 한함) */
+  P_CSHR_TYPE?: '0' | '1';
+
+  /** 현금영수증 발행일자 [YYYYMMDDhhmmss] (* 현금영수증 발급요청 건에 한함) */
+  P_CSHR_DT?: string;
+
+  /** 현금영수증 발행승인번호 (* 현금영수증 발급요청 건에 한함) */
+  P_CSHR_AUTH_NO?: string;
+};
