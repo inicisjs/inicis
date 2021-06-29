@@ -72,6 +72,12 @@ export type StdPayRequestParams = Pick<InicisOptions, 'mid'> &
 
     /** SHA256 Hash값 [대상: mid 와 매칭되는 signkey] */
     mKey: string;
+
+    /** 메인로고 삽입 [size: 89*18] (* 이미지 전체 도메인주소 세팅) */
+    logo_url?: string;
+
+    /** 서브로고 삽입 [size: 64*13] (* 이미지 전체 도메인주소 세팅) */
+    logo_2nd?: string;
   };
 
 /** 이니시스 웹표준결제 인증결과 (클라이언트에서 사용) */
