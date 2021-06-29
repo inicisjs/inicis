@@ -9,9 +9,6 @@ export type IniapiCommonRequestParams = {
 
   /** 상점아이디 */
   mid: string;
-
-  /** 전문위변조 HASH (hash(INIAPIKey+type+paymethod+timestamp+clientIp+mid)) */
-  hashData: string;
 };
 
 /** 거래조회 */
@@ -27,6 +24,9 @@ export type IniapiGetTransactionRequestParams = IniapiCommonRequestParams & {
 
   /** 주문번호 (* "주문번호 중복방지" 계약 시, originalTid 값 없이 oid 로만 거래조회 가능) */
   oid: string;
+
+  /** 전문위변조 HASH (hash(INIAPIKey+type+paymethod+timestamp+clientIp+mid)) */
+  hashData: string;
 };
 
 /** 일반(전액) 취소 */
@@ -42,6 +42,9 @@ export type IniapiRefundRequestParams = IniapiCommonRequestParams & {
 
   /** 취소요청사유 */
   msg: string;
+
+  /** 전문위변조 HASH (hash(INIAPIKey+type+paymethod+timestamp+clientIp+mid+tid)) */
+  hashData: string;
 };
 
 /** 부분 취소 */
@@ -72,6 +75,9 @@ export type IniapiPartialRefundRequestParams = IniapiCommonRequestParams & {
 
   /** 비과세 */
   taxFree: number;
+
+  /** 전문위변조 HASH (hash(INIAPIKey+type+paymethod+timestamp+clientIp+mid+tid+price+confirmPrice)) */
+  hashData: string;
 };
 
 export type IniapiCommonResult = {

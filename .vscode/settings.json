@@ -1,7 +1,3 @@
 {
-  "conventionalCommits.scopes": [
-    "stdpay",
-    "mobpay",
-    "iniapi"
-  ]
+  "conventionalCommits.scopes": ["stdpay", "mobpay", "iniapi"]
 }
