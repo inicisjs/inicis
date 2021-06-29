@@ -1,4 +1,4 @@
-import { IniapiPaymethod } from '../constants';
+import { IniapiPaymethod, InicisBankCode } from '../constants';
 
 export type IniapiCommonRequestParams = {
   /** 전문생성시간 [YYYYMMDDhhmmss] */
@@ -47,6 +47,27 @@ export type IniapiRefundRequestParams = IniapiCommonRequestParams & {
   hashData: string;
 };
 
+/** 가상계좌 일반(전액) 취소 */
+export type IniapiVacctRefundRequestParams = Omit<
+  IniapiRefundRequestParams,
+  'paymethod' | 'hashData'
+> & {
+  /** "Vacct" 고정 */
+  paymethod: IniapiPaymethod.Vacct;
+
+  /** 전문위변조 HASH (hash(INIAPIKey+type+paymethod+timestamp+clientIp+mid+tid+refundAcctNum(HASH))) */
+  hashData: string;
+
+  /** 환불계좌번호 HASH 'aes-128-cbc' */
+  refundAcctNum: string;
+
+  /** 환불계좌 은행코드 */
+  refundBankCode: InicisBankCode;
+
+  /** 환불계좌 예금주명 */
+  refundAcctName: string;
+};
+
 /** 부분 취소 */
 export type IniapiPartialRefundRequestParams = IniapiCommonRequestParams & {
   /** "PartialRefund" 고정 */
@@ -78,6 +99,33 @@ export type IniapiPartialRefundRequestParams = IniapiCommonRequestParams & {
 
   /** 전문위변조 HASH (hash(INIAPIKey+type+paymethod+timestamp+clientIp+mid+tid+price+confirmPrice)) */
   hashData: string;
+};
+
+/** 가상계좌 일반(전액) 취소 */
+export type IniapiVacctPartialRefundRequestParams = Omit<
+  IniapiPartialRefundRequestParams,
+  'paymethod' | 'hashData'
+> & {
+  /** "Vacct" 고정 */
+  paymethod: IniapiPaymethod.Vacct;
+
+  /** 전문위변조 HASH (hash(INIAPIKey+type+paymethod+timestamp+clientIp+mid+tid+price+confirmPrice+refundAcctNum(HASH)) */
+  hashData: string;
+
+  /** 취소요청금액 */
+  price: number;
+
+  /** 부분취소 후 남은금액 */
+  confirmPrice: number;
+
+  /** 환불계좌번호 HASH 'aes-128-cbc' */
+  refundAcctNum: string;
+
+  /** 환불계좌 은행코드 */
+  refundBankCode: InicisBankCode;
+
+  /** 환불계좌 예금주명 */
+  refundAcctName: string;
 };
 
 export type IniapiCommonResult = {
@@ -120,6 +168,7 @@ export type IniapiGetTransactionResult = IniapiCommonResult & {
   applTime?: string;
 };
 
+/** 취소 결과 scheme (가상계좌도 동일) */
 export type IniapiRefundResult = IniapiCommonResult & {
   /** 취소일자 [YYYYMMDD] */
   cancelDate: string;
@@ -131,6 +180,7 @@ export type IniapiRefundResult = IniapiCommonResult & {
   cshrCancelNum: string;
 };
 
+/** 부분취소 결과 scheme (가상계좌도 동일) */
 export type IniapiPartialRefundResult = IniapiCommonResult & {
   /** 부분취소 TID */
   tid: string;
