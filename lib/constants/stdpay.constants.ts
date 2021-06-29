@@ -59,3 +59,9 @@ export enum StdPayPayMethod {
    * (간편결제 다이렉트 호출 시 '신용카드 전용화면' 계약이 되어있어야 합니다.) */
   onlykakaopay = 'onlykakaopay',
 }
+
+export const StdpayVbankNotiWhitelist = [
+  '203.238.37.15',
+  '39.115.212.9',
+  '183.109.71',
+];

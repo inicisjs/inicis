@@ -16,3 +16,9 @@ export enum MobpayMethod {
   /** 알리페이,페이팔 외 기타 */
   ETC_ = 'ETC_',
 }
+
+export const MobpayVbankNotiWhitelist = [
+  '118.129.210.25',
+  '183.109.71.153',
+  '203.238.37.15',
+];
