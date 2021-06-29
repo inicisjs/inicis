@@ -20,7 +20,7 @@ export type IniapiGetTransactionRequestParams = IniapiCommonRequestParams & {
   paymethod: 'Inquiry';
 
   /** 원거래 TID */
-  originalTid: string;
+  originalTid?: string;
 
   /** 주문번호 (* "주문번호 중복방지" 계약 시, originalTid 값 없이 oid 로만 거래조회 가능) */
   oid: string;
