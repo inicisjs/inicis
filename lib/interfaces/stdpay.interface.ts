@@ -420,3 +420,72 @@ export type StdPayAuthPhoneBillResult = {
   /** 승인 전화번호 */
   PHNB_Num: string;
 };
+
+/** 웹표준결제 가상계좌 입금통보 paramters */
+export type StdpayVbankNoti = {
+  /** 거래번호 (입금거래에 대한 입금TID) (* 가상계좌 채번TID 와 상이) */
+  no_tid: string;
+
+  /** 상점 주문번호 (가상계좌 채번요청 시 주문번호) */
+  no_oid: string;
+
+  /** 가상계좌 발급 시 은행코드 */
+  cd_bank: InicisBankCode;
+
+  /** 고객 실입금 시 은행코드 */
+  cd_deal: InicisBankCode;
+
+  /** 금융기관 발생 거래 일자 */
+  dt_trans: string;
+
+  /** 금융기관 발생 거래 시각 */
+  tm_Trans: string;
+
+  /** 가상계좌번호 */
+  no_vacct: string;
+
+  /** 입금금액 */
+  amt_input: number;
+
+  /** 마감구분 [0:당일마감전, 1:당일마감후] */
+  flg_close: '0' | '1';
+
+  /** 마감구분코드 [0:당일마감전, 1:당일마감후] */
+  cl_close: '0' | '1';
+
+  /** 거래구분 [0200:정상] */
+  type_msg: string;
+
+  /** 입금은행명 */
+  nm_inputbank: string;
+
+  /** 입금자명 */
+  nm_input: string;
+
+  /** 입금기준일자 */
+  dt_inputstd: string;
+
+  /** 정산기준일자 */
+  dt_calculstd: string;
+
+  /** 거래기준일자 */
+  dt_transbase: string;
+
+  /** 거래구분코드 [1100] */
+  cl_trans: string;
+
+  /** 한글구분코드 */
+  cl_kor: string;
+
+  /** 현금영수증 발급일자 (* 현금영수증 발행요청 건에 한함) */
+  dt_cshr?: string;
+
+  /** 현금영수증 발급시간 (* 현금영수증 발행요청 건에 한함) */
+  tm_cshr?: string;
+
+  /** 현금영수증 발급번호 (* 현금영수증 발행요청 건에 한함) */
+  no_cshr_appl?: string;
+
+  /** 현금영수증 발급TID (* 현금영수증 발행요청 건에 한함) */
+  no_cshr_tid?: string;
+};
