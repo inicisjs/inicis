@@ -17,9 +17,8 @@ export type StdPayGetParamsInput = {
    * @default '' */
   gopaymethod?: string;
 
-  /** 주문번호 (* 반드시 Unique 값으로 생성 (거래추적 시 사용됨))
-   * @default `${timestamp}${getRandomString(4)}` */
-  oid?: string;
+  /** 주문번호 (* 반드시 Unique 값으로 생성 (거래추적 시 사용됨)) */
+  oid: string;
 
   /** 타임스템프 [TimeInMillis(Long형)]
    * @default new Date().getTime() */
