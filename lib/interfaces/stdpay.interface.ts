@@ -145,7 +145,7 @@ export type StdPayAuthResult = InicisCommonResult & {
   TotPrice: number;
 
   /** 주문번호 (* 결제 요청시 oid 필드에 설정된 값) */
-  MOID: String;
+  MOID: string;
 
   /** SHA256 Hash값 [대상: mid, tstamp(timestamp), MOID, TotPrice] */
   authSignature: string;
