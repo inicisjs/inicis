@@ -198,6 +198,9 @@ export enum InicisBankCode {
   /** 네이버포인트 (포인트 100% 사용) */
   NaverPoint = '91',
 
+  /** 토스뱅크 */
+  TossBank = '92',
+
   /** 토스머니 (포인트 100% 사용) */
   TossMoney = '93',
 
